@@ -1,0 +1,27 @@
+frontend:
+  container:
+    image: joyce237/fueled-frontend
+    containerPort: 3000
+    baseURL: "http://backend-service.prod.svc.cluster.local:8080"
+
+backend:
+  container:
+    image: joyce237/fueled-test-backend
+    containerPort: 8080
+
+app:
+  replicas: 2
+  env: prod
+  computerc:
+    limits:
+      cpu: 1
+      memory: 2Gi
+    requests:
+      cpu: 1
+      memory: 2Gi
+
+hpa:
+  enabled: true
+  maxreplicas: 4
+  minrplicas: 2
+  cuputi: 90

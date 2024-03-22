@@ -1,0 +1,27 @@
+frontend:
+  selectorName: next-ui
+  container:
+    image: joyce237/fueled-frontend
+    containerPort: 3000
+    baseURL: "http://backend-service.dev.svc.cluster.local:8080"
+
+backend:
+  selectorName: node-backend
+  container:
+    image: joyce237/fueled-test-backend
+    containerPort: 8080
+
+app:
+
+  replicas: 1
+  env: dev
+  computerc:
+    limits:
+      cpu: 0.2
+      memory: 200Mi
+    requests:
+      cpu: 0.2
+      memory: 200Mi
+
+hpa:
+  enabled: false

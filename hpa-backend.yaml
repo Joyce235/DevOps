@@ -1,0 +1,16 @@
+{{- if .Values.hpa.enabled -}}
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: backend-hpa
+  annotations:
+    {{- include "backend.labels" . | nindent 4 }}
+spec:
+  maxReplicas: {{ .Values.hpa.maxreplicas }}
+  minReplicas: {{ .Values.hpa.minrplicas }}
+  scaleTargetRef:
+    apiVersion: extensions/v1
+    kind: Deployment
+    name: {{ .Values.backend.selectorName  }}
+  targetCPUUtilizationPercentage: {{ .Values.hpa.cuputi }}
+{{- end -}}
