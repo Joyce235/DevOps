@@ -12,10 +12,10 @@ Output: Application working properly in local machine docker environment
 
 ```
 - docker login
-- docker tag fueled-test-frontend:latest muzammil98/fueled-frontend:latest
-- docker push muzammil98/fueled-frontend:latest
-- docker tag fueled-test-backend:latest muzammil98/fueled-backend:latest
-- docker push muzammil98/fueled-backend:latest
+- docker tag fueled-test-frontend:latest joyce237/fueled-frontend:latest
+- docker push joyce237/fueled-frontend:latest
+- docker tag fueled-test-backend:latest joyce237/fueled-test-backend:latest
+- docker push joyce237/fueled-test-backend:latest
 ```
 
 # Terraform
